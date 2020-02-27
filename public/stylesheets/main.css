@@ -1,0 +1,36 @@
+.container {
+ margin: 0 auto;
+}
+
+.row{
+    padding-top: 10px;
+}
+
+
+.main-div {
+    display: contents;
+}
+
+.card1use {
+    width: 65%; 
+    margin: auto; 
+    padding: 10px 40px;
+}
+
+/* .card2use {
+    width: 65%; 
+    margin: auto; 
+    margin-top: 15px; 
+} */
+
+.text-muted {
+    font-size: 20px;
+}
+
+.column-md-9{
+    display: contents;
+}
+
+#delete-form{
+    display: inline;
+}
