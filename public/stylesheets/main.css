@@ -7,6 +7,13 @@
     padding-top: 10px;
 }
 
+.homepage{
+    font-size: 50px;
+}
+
+.container .jumbotron .container p{
+    font-size: 20px;
+}
 
 .main-div {
     display: contents;
@@ -18,12 +25,25 @@
     padding: 10px 40px;
 }
 
+.signin {
+    width: 30%;
+}
 
+.logincenter {
+    text-align: center;
+}
+
+.home {
+    font-size: large;
+}
 
 .list-group{
     width: 40%;
 }
 
+.navbar-brand {
+    font-weight: bold;
+}
 
 .text-muted {
     font-size: 20px;
