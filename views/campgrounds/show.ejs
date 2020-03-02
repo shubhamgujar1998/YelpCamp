@@ -1,32 +1,33 @@
 <%- include("../partials/header") %>
 
-<div class="container">
-    <div class="row">
+<div class="container use1">
+    <div class="row use2">
 
-        <div class="column-md-3">
+        <div class="col-md-3">
             <p class="lead">YelpCamp</p>
             <div class="list-group">
                 <li class="list-group-item active">Info 1</li>
-                <li class="list-group-item">info 2</li>
+                <li class="list-group-item usemenow">info 2</li>
                 <li class="list-group-item">Info 3</li>
             </div>
         </div>
 
-        <div class="column-md-9">
-            <!-- <div class="main-div"> -->
-
+        <div class="col-md-9">
                 <div class="card card1use">
                     <img src="<%= campground.image %> ">
                     <div class="card-body">
                         <h4 class="card-title"><a href="#"><%= campground.name %> </a> 
-                            <span class="float-right text-muted">$9.00/night</span>
+                            <span class="float-right text-muted">$<%= campground.price %>/night</span>
                         </h4>
                         <p class="card-text"><%= campground.description %></p>
                         <p><em>Submitted by <%= campground.author.username %> </em> </p>
-                        <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-                        <form id="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                            <button class="btn btn-danger">Delete</button>
-                        </form> 
+                        <% if(currentUser && campground.author.id.equals(currentUser._id)){ %> 
+                            <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                            <form id="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">Delete</button>
+                            </form> 
+                        <% } %>         
+                        
                     </div>
                 
                 <div class="main">
@@ -42,6 +43,16 @@
                                         <strong> <%= comment.author.username %> </strong>
                                             <span class="float-right">10 days ago</span>
                                             <p> <%= comment.text %> </p>
+                                            <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                                                <a 
+                                                    href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit" 
+                                                    class="btn btn-sm btn-warning">
+                                                    Edit
+                                                </a>
+                                                <form class=" delete-form-comment" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                                    <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                                                </form>
+                                            <% } %> 
                                         </div>
                                     </div>
                                 <% }) %> 
@@ -50,9 +61,9 @@
                 </div>    
                     
                 </div>
-
-            <!-- </div> -->
         </div>
+
+
     </div>
 </div>
 

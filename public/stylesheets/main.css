@@ -1,8 +1,9 @@
-.container {
- margin: 0 auto;
+.container.use1 {
+ margin-left: 0;
+ margin-right: 0;
 }
 
-.row{
+.row.use2{
     padding-top: 10px;
 }
 
@@ -17,20 +18,29 @@
     padding: 10px 40px;
 }
 
-/* .card2use {
-    width: 65%; 
-    margin: auto; 
-    margin-top: 15px; 
-} */
+
+
+.list-group{
+    width: 40%;
+}
+
 
 .text-muted {
     font-size: 20px;
 }
 
-.column-md-9{
+.col-md-3{
+    text-align: -webkit-center;
+}
+
+.col-md-9{
     display: contents;
 }
 
 #delete-form{
+    display: inline;
+}
+
+.delete-form-comment{
     display: inline;
 }

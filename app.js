@@ -2,6 +2,7 @@ var express = require("express"),
 	app = express(),
 	bodyParser = require("body-parser"),
 	mongoose = require('mongoose'),
+	flash = require("connect-flash"),
 	methodOverride = require("method-override"),
 	Campground = require("./models/campground"),
 	Comment = require("./models/comment"),
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(flash());
 //seedDB();					// Seeding the DB with 3 Campgrounds and Comments for each of them
 
 
@@ -44,6 +46,8 @@ passport.deserializeUser(User.deserializeUser());
 // Another use of middleware so that we don't have to manually put req.user in every route
 app.use(function(req, res, next){
 	res.locals.currentUser = req.user;
+	res.locals.error = req.flash("error");
+	res.locals.success = req.flash("success");
 	next();
 });
 
